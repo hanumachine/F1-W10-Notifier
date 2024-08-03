@@ -22,7 +22,7 @@ def check_events():
         race_time = time.fromisoformat(race['time']) 
         race_event =  datetime.combine(race_date, race_time)
 
-    if race_event.timestamp() > now.timestamp() and race_event.timestamp() - now.timestamp() <= userminutes and race_event.timestamp() - now.timestamp() >= (userminutes-timer):
+    if race_event.timestamp() > now.timestamp() and race_event.timestamp() - now.timestamp() <= userminutes and race_event.timestamp() - now.timestamp() >= (userminutes*60-timer):
          toaster.show_toast("F1 Notifier",
                 f"'{(race['raceName'])}' is happening in around [{(race_event.timestamp() - now.timestamp())}].",
                 icon_path=None,
